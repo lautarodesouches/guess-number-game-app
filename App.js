@@ -4,16 +4,26 @@ import { primaryBg, primaryText, themeBg } from './constants/colors.js';
 
 export default function App() {
 
-  const [value, setValue] = useState('Valor')
+  const [task, setTask] = useState('');
+  const [taskList, setTaskList] = useState([]);
+
+  const handleSumbit = () => {
+    // Clear task
+    setTask('');
+    // Add task to list
+    setTaskList([...taskList, task]);
+  }
 
   return (
     <View style={styles.container}>
       <View style={styles.list}>
-        <Text>{ value }</Text>
+        {
+          taskList.map( (el, id) => <Text key={id}>{el}</Text>)
+        }
       </View>
       <View style={styles.inputContainer}>
-        <TextInput style={styles.textInput} placeholder="Escribir tarea" />
-        <TouchableOpacity style={styles.buttonPrimary} onPress={() => {setValue('Otro valor')}}>
+        <TextInput style={styles.textInput} placeholder="Escribir tarea" value={task} onChangeText={e => setTask(e)} />
+        <TouchableOpacity style={styles.buttonPrimary} onPress={() => handleSumbit()}>
           <Text style={styles.buttonPrimary__Text}>Agregar</Text>
         </TouchableOpacity>
       </View>
@@ -45,7 +55,7 @@ const styles = StyleSheet.create({
   },
   buttonPrimary__Text: {
     color: primaryText,
-    fontSize: 15,
+    fontSize: 17,
     textAlign: 'center',
   }
 });
