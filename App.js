@@ -1,23 +1,51 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, TextInput, TouchableOpacity, Text, FlatList } from 'react-native';
+import { useState } from 'react';
+import { primaryBg, primaryText, themeBg } from './constants/colors.js';
 
 export default function App() {
+
+  const [value, setValue] = useState('Valor')
+
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Hola, Coder!</Text>
-      <StatusBar style="auto" />
+      <View style={styles.list}>
+        <Text>{ value }</Text>
+      </View>
+      <View style={styles.inputContainer}>
+        <TextInput style={styles.textInput} placeholder="Escribir tarea" />
+        <TouchableOpacity style={styles.buttonPrimary} onPress={() => {setValue('Otro valor')}}>
+          <Text style={styles.buttonPrimary__Text}>Agregar</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    alignContent: 'center',
+    backgroundColor: themeBg,
     flex: 1,
-    backgroundColor: '#041C32',
-    alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
+    padding: 50,
   },
-  text: {
-    color: '#fff',
+  list: {
+    marginTop: 20,
+  },
+  textInput: {
+    borderColor: primaryBg,
+    borderBottomWidth: 1,
+    fontSize: 20,
+  },
+  buttonPrimary: {
+    backgroundColor: primaryBg,
+    borderRadius: 10,
+    padding: 10,
+    marginTop: 20,
+  },
+  buttonPrimary__Text: {
+    color: primaryText,
+    fontSize: 15,
+    textAlign: 'center',
   }
 });
