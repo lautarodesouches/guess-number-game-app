@@ -1,6 +1,6 @@
-import { StyleSheet, View, TextInput, TouchableOpacity, Text, FlatList } from 'react-native';
 import { useState } from 'react';
-import { primaryBg, primaryText, themeBg } from './constants/colors.js';
+import { StyleSheet, View, TextInput, TouchableOpacity, Text, FlatList, Modal } from 'react-native';
+import { primaryBg, primaryText, secondaryBg, themeBg } from './constants/colors.js';
 
 export default function App() {
 
@@ -18,10 +18,17 @@ export default function App() {
     return <Text style={styles.list__title}>Tareas:</Text>
   }
 
+  const handleDelete = (id) => {
+    setTaskList(taskList.filter( item => item.id !== id));
+  }
+
   const renderItem = ({ item }) => {
     return (
-      <View styke={styles.list__item} key={item.id}>
-        <Text styke={styles.list__text}>{item.value}</Text>
+      <View style={styles.list__item} key={item.id}>
+        <Text style={styles.list__text}>- {item.value}</Text>
+        <TouchableOpacity style={styles.list__close} onPress={() => handleDelete(item.id)}>
+          <Text style={styles.list__closeText}>X</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -74,14 +81,28 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   list__title: {
-    fontSize: 20,
-    marginBottom: 10,
+    fontSize: 25,
+    fontWeight: 'bold',
+    marginBottom: 20,
   },
   list__item: {
-    paddingLeft: 10,
-    paddingRight: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    marginBottom: 15,
   },
   list__text: {
-    fontSize: 15,
+    fontSize: 20,
+  },
+  list__close: {
+    padding: 5,
+    backgroundColor: secondaryBg,
+    borderRadius: 100,
+    width: '10%',
+  },
+  list__closeText: {
+    textAlign: 'center',
+    color: '#fff',
   }
 });
