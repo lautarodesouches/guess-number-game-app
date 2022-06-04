@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { StyleSheet, View, TextInput, TouchableOpacity, Text, FlatList, Modal } from 'react-native';
-import { primaryBg, primaryText, secondaryBg, themeBg } from './constants/colors.js';
+import { primaryBg, primaryText, secondaryBg, secondaryText, themeBg } from './constants/colors.js';
 
 export default function App() {
 
   const [task, setTask] = useState('');
   const [taskList, setTaskList] = useState([]);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [itemToDelete, setItemToDelete] = useState({});
 
   const handleSumbit = () => {
     // Clear task
@@ -18,15 +20,21 @@ export default function App() {
     return <Text style={styles.list__title}>Tareas:</Text>
   }
 
+  const handleModal = (item) => {
+    setItemToDelete(item)
+    setModalVisible(true);
+  }
+
   const handleDelete = (id) => {
-    setTaskList(taskList.filter( item => item.id !== id));
+    setTaskList(taskList.filter(item => item.id !== id));
+    setModalVisible(false);
   }
 
   const renderItem = ({ item }) => {
     return (
       <View style={styles.list__item} key={item.id}>
         <Text style={styles.list__text}>- {item.value}</Text>
-        <TouchableOpacity style={styles.list__close} onPress={() => handleDelete(item.id)}>
+        <TouchableOpacity style={styles.list__close} onPress={() => handleModal(item)}>
           <Text style={styles.list__closeText}>X</Text>
         </TouchableOpacity>
       </View>
@@ -49,6 +57,21 @@ export default function App() {
           <Text style={styles.buttonPrimary__text}>Agregar</Text>
         </TouchableOpacity>
       </View>
+      <Modal
+        animationType='slide'
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        <View style={styles.modal__container}>
+          <Text style={styles.modal__text}>Estas seguro que queres eliminar {itemToDelete.value}?</Text>
+          <TouchableOpacity style={styles.buttonDanger} onPress={() => handleDelete(itemToDelete.id)}>
+            <Text style={styles.buttonDanger__text}>Eliminar</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.buttonSecondary} onPress={() => setModalVisible(false)}>
+            <Text style={styles.buttonSecondary__text}>Cancelar</Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
     </View>
   );
 }
@@ -104,5 +127,37 @@ const styles = StyleSheet.create({
   list__closeText: {
     textAlign: 'center',
     color: '#fff',
-  }
+  },
+  modal__container: {
+    flex: 1,
+    padding: 50,
+    backgroundColor: primaryBg,
+  },
+  modal__text: {
+    textAlign: 'center',
+    color: primaryText,
+    fontSize: 25,
+  },
+  buttonDanger: {
+    backgroundColor: 'red',
+    borderRadius: 10,
+    padding: 10,
+    marginTop: 20,
+  },
+  buttonDanger__text:{
+    color: '#fff',
+    fontSize: 15,
+    textAlign: 'center',
+  },
+  buttonSecondary: {
+    backgroundColor: secondaryBg,
+    borderRadius: 10,
+    padding: 10,
+    marginTop: 20,
+  },
+  buttonSecondary__text: {
+    color: secondaryText,
+    fontSize: 15,
+    textAlign: 'center',
+  },
 });
