@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { secondaryBg, secondaryText, themeBg } from "../../../constants/colors";
+import { secondaryText, themeBg } from "../../../constants/colors";
 
 export const styles = StyleSheet.create({
     container: {
@@ -14,22 +14,8 @@ export const styles = StyleSheet.create({
     },
     text: {
         color: secondaryText,
-        fontSize: 20,
+        fontSize: 25,
         textAlign: 'center',
-    },
-    input: {
-        borderColor: '#fff',
-        borderWidth: 1,
-        borderRadius: 5,
-        padding: 10,
-        alignItems: 'center',
-        color: secondaryText,
-        fontSize: 20,
-        marginHorizontal: 'auto',
-        marginTop: 40,
-        maxWidth: '50%',
-        textAlign: 'center',
-        width: 300,
     },
     buttonContainer: {
         width: '100%',

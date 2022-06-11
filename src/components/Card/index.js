@@ -1,8 +1,8 @@
 import { View } from "react-native";
 import { styles } from "./styles";
 
-const Card = ({children}) => {
-    return(
+const Card = ({ children }) => {
+    return (
         <View style={styles.card}>
             {children}
         </View>
