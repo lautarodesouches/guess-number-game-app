@@ -22,5 +22,9 @@ export const styles = StyleSheet.create({
         marginTop: 20,
         flexDirection: 'row',
         justifyContent: 'space-evenly',
-    }
+    },
+    modalText:{
+        fontSize: 20,
+        marginBottom: 10,
+    },
 });
