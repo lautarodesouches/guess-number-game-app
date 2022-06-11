@@ -27,6 +27,10 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
     },
     input: {
+        borderColor: '#fff',
+        borderWidth: 1,
+        borderRadius: 5,
+        padding: 5,
         alignItems: 'center',
         color: secondaryText,
         fontSize: 20,
@@ -38,7 +42,7 @@ export const styles = StyleSheet.create({
     },
     buttonContainer: {
         width: '100%',
-        marginTop: 40,
+        marginTop: 20,
         flexDirection: 'row',
         justifyContent: 'space-evenly',
     }

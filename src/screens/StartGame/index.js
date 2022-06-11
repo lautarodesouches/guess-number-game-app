@@ -1,5 +1,5 @@
-import { View, Text, TextInput, Button } from "react-native";
-import { secondaryText } from "../../../constants/colors";
+import { View, Text, TextInput} from "react-native";
+import { ButtonDanger, ButtonPrimary } from "../../components";
 import { styles } from "./styles";
 
 const StartGame = () => {
@@ -10,12 +10,16 @@ const StartGame = () => {
                 <Text style={styles.text}>Elija un número</Text>
                 <TextInput
                     style={styles.input}
-                    placeholderTextColor={secondaryText}
-                    placeholder={(Math.round(Math.random()*100)).toString()}
+                    placeholderTextColor='#e1e1e1'
+                    placeholder={'Ej: ' + Math.round(Math.random()*100)}
                     keyboardType='numeric' />
                 <View style={styles.buttonContainer}>
-                    <Button title="Limpiar" onPress={() => {}} />
-                    <Button title="Confirmar" onPress={() => {}} />
+                    <ButtonDanger onPressF={() => {}}>
+                        <Text>Limpiar</Text>
+                    </ButtonDanger>
+                    <ButtonPrimary onPressF={() => {}}>
+                        <Text>Confirmar</Text>
+                    </ButtonPrimary>
                 </View>
             </View>
         </View>
