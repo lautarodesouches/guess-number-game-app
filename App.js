@@ -1,13 +1,27 @@
+import { useFonts } from 'expo-font';
 import { useState } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { ActivityIndicator, StyleSheet, View } from 'react-native';
 import { Header } from './src/components';
 import GameScreen from './src/screens/GameScreen';
 import StartGame from './src/screens/StartGame';
 
 export default function App() {
 
-  const [userNumber, setUserNumber] = useState('');
   const [headerMessage, setHeaderMessage] = useState('Bienvenido!');
+
+  const [loaded] = useFonts({
+    "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
+    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
+    "open-sans-semibold": require("./assets/fonts/OpenSans-SemiBold.ttf"),
+    "open-sans-extrabold": require("./assets/fonts/OpenSans-ExtraBold.ttf"),
+    "open-sans-light": require("./assets/fonts/OpenSans-Light.ttf"),
+    "open-sans-italic": require("./assets/fonts/OpenSans-Italic.ttf"),
+  });
+  const [userNumber, setUserNumber] = useState();
+
+  if (!loaded) {
+    return <ActivityIndicator size="large" color={'white'} />;
+  }
 
   const handleStartGame = selectedNumber => setUserNumber(selectedNumber);
 
