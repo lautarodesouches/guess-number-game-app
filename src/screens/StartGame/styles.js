@@ -10,16 +10,7 @@ export const styles = StyleSheet.create({
     },
     title: {
         textAlign: 'center',
-        fontSize: 20,
-    },
-    inputContainer: {
-        alignItems: "center",
-        backgroundColor: secondaryBg,
-        borderRadius: 5,
-        padding: '5%',
-        marginVertical: 30,
-        justifyContent: 'space-evenly',
-        width: '100%',
+        fontSize: 25,
     },
     text: {
         color: secondaryText,
@@ -30,7 +21,7 @@ export const styles = StyleSheet.create({
         borderColor: '#fff',
         borderWidth: 1,
         borderRadius: 5,
-        padding: 5,
+        padding: 10,
         alignItems: 'center',
         color: secondaryText,
         fontSize: 20,
