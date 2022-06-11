@@ -1,9 +1,11 @@
 import { StyleSheet, View } from 'react-native';
-import StartGame from './src/screens/start-game';
+import { Header } from './src/components';
+import StartGame from './src/screens/StartGame';
 
 export default function App() {
   return (
     <View style={styles.container}>
+      <Header title={'Bienvenidos!'} />
       <StartGame />
     </View>
   );
