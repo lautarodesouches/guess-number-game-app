@@ -3,7 +3,7 @@ import { View, Text, TouchableWithoutFeedback, Keyboard, Modal } from "react-nat
 import { ButtonDanger, ButtonPrimary, Card, CustomInput, CustomModal } from "../../components";
 import { styles } from "./styles";
 
-const StartGame = () => {
+const StartGame = ({onStartGame}) => {
 
     const [inputValue, setInputValue] = useState('');
     const [selectedNumber, setSelectedNumber] = useState('');
@@ -68,7 +68,7 @@ const StartGame = () => {
                         ?
                         <CustomModal closeFunction={() => setConfirmed(false)}>
                             <Text style={styles.modalText}>El número que seleccionaste es: {selectedNumber}</Text>
-                            <ButtonPrimary onPressF={() => null}>Empezar Juego</ButtonPrimary>
+                            <ButtonPrimary onPressF={() => onStartGame(selectedNumber)}>Empezar Juego</ButtonPrimary>
                         </CustomModal>
                         :
                         null
