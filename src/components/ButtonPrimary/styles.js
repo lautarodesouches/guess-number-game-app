@@ -7,7 +7,5 @@ export const styles = StyleSheet.create({
   },
   buttonPrimary__text: {
     color: primaryText,
-    textAlign: 'center',
-    fontSize: 17,
   },
 });

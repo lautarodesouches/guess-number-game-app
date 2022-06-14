@@ -1,13 +1,14 @@
-import { Text } from "react-native";
 import { styles } from "../ButtonSecondary/styles";
 import CustomButton from "../CustomButton";
 
 const ButtonSecondary = ({ children, onPressF }) => {
     return (
-        <CustomButton style={styles.buttonSecondary} onPressF={() => onPressF()}>
-            <Text style={styles.buttonSecondary__text}>
-                {children}
-            </Text>
+        <CustomButton
+            styleButton={styles.buttonSecondary}
+            styleText={styles.buttonSecondary__text}
+            onPressF={onPressF}
+        >
+            {children}
         </CustomButton>
     );
 }

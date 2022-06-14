@@ -15,4 +15,9 @@ export const styles = StyleSheet.create({
         shadowRadius: 3.84,
         elevation: 5,
     },
+    text: {
+        fontFamily: 'open-sans-semibold',
+        textAlign: 'center',
+        fontSize: 17,
+    },
 });

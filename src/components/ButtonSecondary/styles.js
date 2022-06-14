@@ -7,7 +7,5 @@ export const styles = StyleSheet.create({
   },
   buttonSecondary__text: {
     color: secondaryText,
-    textAlign: 'center',
-    fontSize: 17,
   },
 });

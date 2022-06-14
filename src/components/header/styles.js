@@ -14,5 +14,6 @@ export const styles = StyleSheet.create({
         color: primaryText,
         fontSize: 25,
         paddingBottom: 20,
+        fontFamily: 'open-sans-light',
     }
 });

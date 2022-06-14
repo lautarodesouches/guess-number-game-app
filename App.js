@@ -11,17 +11,12 @@ export default function App() {
 
   const [loaded] = useFonts({
     "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
-    "open-sans-bold": require("./assets/fonts/OpenSans-Bold.ttf"),
     "open-sans-semibold": require("./assets/fonts/OpenSans-SemiBold.ttf"),
-    "open-sans-extrabold": require("./assets/fonts/OpenSans-ExtraBold.ttf"),
     "open-sans-light": require("./assets/fonts/OpenSans-Light.ttf"),
-    "open-sans-italic": require("./assets/fonts/OpenSans-Italic.ttf"),
   });
   const [userNumber, setUserNumber] = useState();
 
-  if (!loaded) {
-    return <ActivityIndicator size="large" color={'white'} />;
-  }
+  if (!loaded) return <ActivityIndicator size="large" color={'white'} />;
 
   const handleStartGame = selectedNumber => setUserNumber(selectedNumber);
 

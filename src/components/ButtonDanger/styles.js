@@ -6,7 +6,5 @@ export const styles = StyleSheet.create({
   },
   buttonDanger__text: {
     color: '#fff',
-    textAlign: 'center',
-    fontSize: 17,
   },
 });

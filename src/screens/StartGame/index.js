@@ -58,7 +58,7 @@ const StartGame = ({onStartGame}) => {
                         ?
                         <CustomModal closeFunction={() => setError()}>
                             <Text style={styles.modalText}>{error}</Text>
-                            <ButtonPrimary onPressF={() => setError()}>Entendido</ButtonPrimary>
+                            <ButtonPrimary onPressF={setError}>Entendido</ButtonPrimary>
                         </CustomModal>
                         :
                         null
