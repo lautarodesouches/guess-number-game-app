@@ -18,7 +18,7 @@ export const styles = StyleSheet.create({
         marginTop: 10,
     },
     number: {
-        fontSize: 20,
+        fontSize: 25,
         marginBottom: 10,
         color: secondaryText,
     }

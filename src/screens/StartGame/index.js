@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { View, Text, TouchableWithoutFeedback, Keyboard, Modal } from "react-native";
-import { ButtonDanger, ButtonPrimary, Card, CustomInput, CustomModal } from "../../components";
+import { ButtonDanger, ButtonPrimary, Card, CustomInput, CustomModal, ErrorModal } from "../../components";
 import { styles } from "./styles";
 
-const StartGame = ({onStartGame}) => {
+const StartGame = ({ onStartGame }) => {
 
     const [inputValue, setInputValue] = useState('');
     const [selectedNumber, setSelectedNumber] = useState('');
@@ -34,9 +34,8 @@ const StartGame = ({onStartGame}) => {
                     <CustomInput
                         style={styles.input}
                         placeholderTextColor='#e1e1e1'
-                        placeholder={'Ej: ' + Math.round(Math.random() * 100)}
+                        placeholder={'Ej: 23'}
                         keyboardType='numeric'
-                        autoCapitali
                         maxLength={2}
                         autoCapitalize='none'
                         autoCorrect={false}
@@ -54,24 +53,26 @@ const StartGame = ({onStartGame}) => {
                     </View>
                 </Card>
                 {
-                    error
-                        ?
-                        <CustomModal closeFunction={() => setError()}>
+                    error && (
+                        <CustomModal
+                            closeFunction={() => setError()}
+                            confirmFunction={() => setError()}
+                            confirmText='Entendido'
+                        >
                             <Text style={styles.modalText}>{error}</Text>
-                            <ButtonPrimary onPressF={setError}>Entendido</ButtonPrimary>
                         </CustomModal>
-                        :
-                        null
+                    )
                 }
                 {
-                    confirmed
-                        ?
-                        <CustomModal closeFunction={() => setConfirmed(false)}>
-                            <Text style={styles.modalText}>El número que seleccionaste es: {selectedNumber}</Text>
-                            <ButtonPrimary onPressF={() => onStartGame(selectedNumber)}>Empezar Juego</ButtonPrimary>
+                    confirmed && (
+                        <CustomModal
+                            closeFunction={() => setConfirmed(false)}
+                            confirmFunction={() => onStartGame(selectedNumber)}
+                            confirmText='Empezar Juego'
+                        >
+                            <Text style={styles.modalText}>{selectedNumber}</Text>
                         </CustomModal>
-                        :
-                        null
+                    )
                 }
             </View>
         </TouchableWithoutFeedback>
