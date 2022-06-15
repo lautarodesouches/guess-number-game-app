@@ -31,9 +31,9 @@ export default function App() {
 
   let content = <StartGame onStartGame={handleStartGame} />
 
-  if (userNumber){
+  if (userNumber && guessRounds === 0){
     content = <GameScreen userNumber={userNumber} handleGameOver={handleGameOver} />;
-    if (headerMessage === 'Bienvenido!') setHeaderMessage('Adivina el número!');
+    if (headerMessage !== 'Adivina el número!') setHeaderMessage('Adivina el número!');
   }
 
   if(guessRounds > 0){
