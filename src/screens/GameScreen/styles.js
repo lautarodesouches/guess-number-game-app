@@ -1,25 +1,27 @@
 import { StyleSheet } from "react-native";
-import { secondaryText, themeBg } from "../../../constants/colors";
+import { secondaryText, themeBg, themeText } from "../../../constants/colors";
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: themeBg,
-        padding: 30,
         alignItems: "center",
+        backgroundColor: themeBg,
+        flex: 1,
+        padding: 30,
+        justifyContent: "center",
     },
     buttonContainer: {
-        width: '100%',
         flexDirection: 'row',
         justifyContent: 'space-evenly',
+        width: '100%',
     },
     text: {
+        color: themeText,
         fontSize: 20,
         marginTop: 10,
     },
     number: {
+        color: secondaryText,
         fontSize: 25,
         marginBottom: 10,
-        color: secondaryText,
     }
 });

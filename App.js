@@ -1,6 +1,7 @@
 import { useFonts } from 'expo-font';
 import { useState } from 'react';
-import { ActivityIndicator, StyleSheet, View } from 'react-native';
+import { ActivityIndicator, StatusBar, StyleSheet, View } from 'react-native';
+import { primaryBg } from './constants/colors';
 import { Header } from './src/components';
 import GameScreen from './src/screens/GameScreen';
 import StartGame from './src/screens/StartGame';
@@ -27,6 +28,7 @@ export default function App() {
 
   return (
     <View style={styles.container}>
+      <StatusBar backgroundColor={primaryBg} />
       <Header title={headerMessage} />
       {content}
     </View>

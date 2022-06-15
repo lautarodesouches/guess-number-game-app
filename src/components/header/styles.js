@@ -5,10 +5,8 @@ export const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         justifyContent: 'flex-end',
-        height: '15%',
-        minHeight: 125,
+        height: '10%',
         backgroundColor: primaryBg,
-        marginBottom: 25,
     },
     text: {
         color: primaryText,

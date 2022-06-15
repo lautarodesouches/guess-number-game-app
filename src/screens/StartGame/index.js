@@ -70,7 +70,7 @@ const StartGame = ({ onStartGame }) => {
                             confirmFunction={() => onStartGame(selectedNumber)}
                             confirmText='Empezar Juego'
                         >
-                            <Text style={styles.modalText}>{selectedNumber}</Text>
+                            <Text style={styles.modalText}>Tu número seleccionado es {selectedNumber}</Text>
                         </CustomModal>
                     )
                 }

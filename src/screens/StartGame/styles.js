@@ -1,16 +1,18 @@
 import { StyleSheet } from "react-native";
-import { secondaryText, themeBg } from "../../../constants/colors";
+import { secondaryText, themeBg, themeText } from "../../../constants/colors";
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: themeBg,
-        padding: 30,
         alignItems: "center",
+        backgroundColor: themeBg,
+        flex: 1,
+        justifyContent: "center",
+        padding: 30,
     },
     title: {
-        textAlign: 'center',
+        color: themeText,
         fontSize: 25,
+        textAlign: 'center',
     },
     text: {
         color: secondaryText,
@@ -18,10 +20,10 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
     },
     buttonContainer: {
-        width: '100%',
-        marginTop: 20,
         flexDirection: 'row',
         justifyContent: 'space-evenly',
+        marginTop: 20,
+        width: '100%',
     },
     modalText:{
         fontSize: 20,
