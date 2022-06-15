@@ -14,7 +14,7 @@ const generateRandomNumber = (min, max, exclude) => {
     }
 };
 
-const GameScreen = ({ userNumber, gameOver }) => {
+const GameScreen = ({ userNumber, handleGameOver }) => {
 
     const [currentGuess, setCurrentGuess] = useState(generateRandomNumber(1, 100, userNumber));
 
@@ -33,11 +33,8 @@ const GameScreen = ({ userNumber, gameOver }) => {
             return;
         }
 
-        if (lower) {
-            currentHigh.current = currentGuess;
-        } else {
-            currentLow.current = currentGuess;
-        }
+        if (lower) currentHigh.current = currentGuess
+        else currentLow.current = currentGuess;
 
         const nextNumber = generateRandomNumber(currentLow.current, currentHigh.current, currentGuess);
 
@@ -48,8 +45,8 @@ const GameScreen = ({ userNumber, gameOver }) => {
     }
 
     useEffect(() => {
-        if (currentGuess == userNumber) gameOver(rounds);
-    }, [currentGuess, userNumber, gameOver]);
+        if (currentGuess == userNumber) handleGameOver(rounds);
+    }, [currentGuess, userNumber, handleGameOver]);
 
     return (
         <View style={styles.container}>
