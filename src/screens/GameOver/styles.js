@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { secondaryText, themeBg } from "../../../constants/colors";
+import { secondaryText, themeBg, themeText } from "../../../constants/colors";
 
 export const styles = StyleSheet.create({
     container: {
@@ -9,9 +9,26 @@ export const styles = StyleSheet.create({
         padding: 30,
         justifyContent: "center",
     },
+    text:{
+        color: themeText,
+        fontSize: 25,
+    },
     cardText: {
         color: secondaryText,
-        fontSize: 23,
+        fontSize: 20,
+        paddingVertical: 5,
+    },
+    highScoreContainer: {
+        width: '100%',
+        alignItems: 'center',
+        backgroundColor: 'crimson',
+        paddingHorizontal: 15,
         paddingVertical: 10,
+        borderRadius: 5,
+    },
+    highScoreText: {
+        fontSize: 20,
+        paddingVertical: 5,
+        color: 'white',
     }
 });

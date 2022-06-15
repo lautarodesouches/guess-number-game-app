@@ -12,6 +12,7 @@ export default function App() {
   const [guessRounds, setGuessRounds] = useState(0);
   const [headerMessage, setHeaderMessage] = useState('Bienvenido!');
   const [userNumber, setUserNumber] = useState();
+  const [highScore, setHighScore] = useState(0);
 
   const [loaded] = useFonts({
     "open-sans": require("./assets/fonts/OpenSans-Regular.ttf"),
@@ -37,8 +38,10 @@ export default function App() {
   }
 
   if(guessRounds > 0){
-    content = <GameOver choise={userNumber} handleRestartGame={handleRestartGame} guessRounds={guessRounds} />;
+    content = <GameOver choise={userNumber} handleRestartGame={handleRestartGame} guessRounds={guessRounds} highScore={highScore} />;
     if (headerMessage === 'Adivina el número!') setHeaderMessage('Terminó el juego!');
+    //
+    if(highScore < guessRounds) setHighScore(guessRounds);
   }
 
   return (
