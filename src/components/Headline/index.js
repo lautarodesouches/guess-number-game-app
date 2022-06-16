@@ -1,7 +1,7 @@
 import { Text, View } from "react-native";
 import { styles } from "./styles";
 
-const Header = ({ title }) => {
+const Headline = ({ title }) => {
     return (
         <View style={styles.container}>
             <Text style={styles.text}>{title}</Text>
@@ -9,4 +9,4 @@ const Header = ({ title }) => {
     );
 }
 
-export default Header;
+export default Headline;
